@@ -1,33 +1,49 @@
 {
-  "name": "leermenuv1",
+  "name": "leermenu",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@testing-library/jest-dom": "^5.14.1",
-    "@testing-library/react": "^11.2.7",
-    "@testing-library/user-event": "^12.8.3",
+    "@craco/craco": "^6.1.2",
+    "@testing-library/jest-dom": "^5.11.4",
+    "@testing-library/react": "^11.1.0",
+    "@testing-library/user-event": "^12.1.10",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-google-login": "^5.2.2",
+    "react-modal": "^3.13.1",
+    "react-qr-reader": "^2.2.1",
+    "react-router-dom": "^5.2.0",
     "react-scripts": "4.0.3",
+    "sweetalert2": "^11.0.17",
     "web-vitals": "^0.2.4",
-    "workbox-background-sync": "^5.1.4",
-    "workbox-broadcast-update": "^5.1.4",
-    "workbox-cacheable-response": "^5.1.4",
-    "workbox-core": "^5.1.4",
-    "workbox-expiration": "^5.1.4",
-    "workbox-google-analytics": "^5.1.4",
-    "workbox-navigation-preload": "^5.1.4",
-    "workbox-precaching": "^5.1.4",
-    "workbox-range-requests": "^5.1.4",
-    "workbox-routing": "^5.1.4",
-    "workbox-strategies": "^5.1.4",
-    "workbox-streams": "^5.1.4"
+    "workbox-background-sync": "^5.1.3",
+    "workbox-broadcast-update": "^5.1.3",
+    "workbox-cacheable-response": "^5.1.3",
+    "workbox-core": "^5.1.3",
+    "workbox-expiration": "^5.1.3",
+    "workbox-google-analytics": "^5.1.3",
+    "workbox-navigation-preload": "^5.1.3",
+    "workbox-precaching": "^5.1.3",
+    "workbox-range-requests": "^5.1.3",
+    "workbox-routing": "^5.1.3",
+    "workbox-strategies": "^5.1.3",
+    "workbox-streams": "^5.1.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject"
+    "start": "craco start",
+    "build": "craco build",
+    "test": "craco test",
+    "eject": "react-scripts eject",
+    "precommit": "npm run format-code",
+    "check-code": "pretty-quick --check",
+    "format-code": "pretty-quick --staged",
+    "format:check": "prettier --config ./.prettierrc --list-different \"src/{core,modules,shared}/**/*{.tsx,.js,.json,.css}\"",
+    "format:write": "prettier --write ./.prettierrc --list-different \"src/{core,modules,shared}/**/*{.tsx,.js,.json,.css}\""
+  },
+  "husky": {
+    "hooks": {
+      "precommit": "npm run precommit"
+    }
   },
   "eslintConfig": {
     "extends": [
@@ -46,5 +62,17 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@tailwindcss/postcss7-compat": "^2.1.2",
+    "@types/react-modal": "^3.12.0",
+    "@types/react-qr-reader": "^2.1.3",
+    "@types/react-router-dom": "^5.1.7",
+    "autoprefixer": "^9.8.6",
+    "dotenv": "^10.0.0",
+    "postcss": "^7.0.35",
+    "prettier": "^2.3.0",
+    "pretty-quick": "^3.1.0",
+    "tailwindcss": "npm:@tailwindcss/postcss7-compat@^2.1.2"
   }
 }

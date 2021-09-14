@@ -1,0 +1,27 @@
+/* Estilos del navbar */
+.navbar-mobile {
+  @apply sm:hidden flex
+    fixed bottom-0 w-screen h-14 z-50
+    bg-white border-t border-gray-100
+    dark:bg-gray-700 dark:border-gray-800;
+}
+
+.navbar__items-mobile {
+  @apply flex justify-around items-center w-full;
+}
+
+.navbar-landscape {
+  @apply hidden sm:flex justify-between
+    fixed top-0 w-screen h-14 z-50
+    bg-white border-t border-gray-100
+    dark:bg-gray-700 dark:border-gray-800;
+}
+
+.navbar__items-landscape {
+  @apply flex justify-around items-center w-2/5
+    dark:text-gray-100;
+}
+
+.navbar__items-landscape > li {
+  @apply hover:text-gray-400 dark:hover:text-purple-400;
+}

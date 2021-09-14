@@ -1,13 +1,27 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* ./src/index.css */
+/* Importacion de tailwind */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Estilos generales */
+.visible-auto {
+  content-visibility: auto;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.cameraScaner > section {
+  border-radius: 5px !important;
+  height: 100vh !important;
+}
+
+.btn-outline {
+  @apply border-2 border-opacity-75;
+}
+
+.btn {
+  @apply rounded-lg
+  flex justify-center items-center
+  px-2 py-1 m-2
+  font-semibold
+  focus:outline-none;
 }
