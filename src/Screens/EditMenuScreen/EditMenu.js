@@ -2,7 +2,7 @@ import {useContext, useEffect, useState} from 'react';
 import {GoogleLogout} from 'react-google-login';
 import {useHistory} from 'react-router-dom';
 
-import {AuthContext} from '../Auth/AuthContext';
+import {AuthContext} from '../../Shared/contexts/AuthContext';
 
 import {Config} from './sections/Config';
 import {Menu} from './sections/Menu';
@@ -24,9 +24,11 @@ export const EditMenu = () => {
     history.replace('/');
   };
 
+  //TODO:Funcion para cambiar el PATH de config y cuandos sea menu
+
   useEffect(() => {
     // Deberia pasar la respuesta a un state
-    getUserData(profileObj).then(res => console.log(res));
+    // getUserData(profileObj).then(res => console.log(res));
   }, [profileObj]);
 
   return (

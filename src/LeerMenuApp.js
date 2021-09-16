@@ -1,7 +1,7 @@
 import {useReducer} from 'react';
-import {AuthContext} from './screen/Auth/AuthContext';
-import {authReducer} from './reducers/authReducer';
-import {AppRouter} from './routers/AppRouter';
+import {AuthContext} from './Shared/contexts/AuthContext';
+import {authReducer} from './Shared/reducers/authReducer';
+import {AppRouter} from './Core/routers/AppRouter';
 
 export const LeerMenuApp = () => {
   //Declaramos el reducer

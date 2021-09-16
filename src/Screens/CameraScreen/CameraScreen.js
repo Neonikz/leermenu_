@@ -6,7 +6,7 @@ export const CameraScreen = () => {
   const history = useHistory();
 
   // Respuesta del lector de QR
-  const handleScan = (data) => {
+  const handleScan = data => {
     if (data) {
       try {
         sessionStorage.setItem('urlMenu', data);
@@ -17,7 +17,7 @@ export const CameraScreen = () => {
     }
   };
 
-  const handleError = (err) => {
+  const handleError = err => {
     console.error(err);
   };
 

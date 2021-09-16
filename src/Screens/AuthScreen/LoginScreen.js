@@ -3,8 +3,7 @@ import {GoogleLogin, GoogleLoginResponseOffline} from 'react-google-login';
 import Swal from 'sweetalert2';
 
 import {useContext} from 'react';
-import {AuthContext} from './AuthContext';
-
+import {AuthContext} from '../../Shared/contexts/AuthContext';
 
 export const LoginScreen = () => {
   //Implementamos history
@@ -14,7 +13,7 @@ export const LoginScreen = () => {
   const {dispatch} = useContext(AuthContext);
 
   // Respuesta del boton de google
-  const responseGoogle = (response) => {
+  const responseGoogle = response => {
     const {profileObj, accessToken} = response;
 
     dispatch({
@@ -43,17 +42,14 @@ export const LoginScreen = () => {
     //   }
     // })
 
-
-
     // Preguntar si existe el usuario
 
     // Existe? llevarlo al edit menu : preguntarle si desea registrarse
 
     // Se quiere registrar? llevarlo a editMenu : llevarlo a home;
-
   };
 
-  const errorLogin = (error) => {
+  const errorLogin = error => {
     console.log(error);
   };
 

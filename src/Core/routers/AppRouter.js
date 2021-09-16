@@ -1,15 +1,15 @@
 import {useContext} from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import {AuthContext} from '../screen/Auth/AuthContext';
+import {AuthContext} from '../../Shared/contexts/AuthContext';
 
 // Componenets
-import {LoginScreen} from '../screen/Auth/LoginScreen';
-import {RegisterScreen} from '../screen/Auth/RegisterScreen';
-import {CameraScreen} from '../screen/CameraScreen/CameraScreen';
-import {EditMenu} from '../screen/EditMenuScreen/EditMenu';
-import {NavbarComponent} from '../components/Navbar/NavbarComponent';
-import {HomeScreen} from '../screen/HomeScreen/HomeScreen';
-import {MenuScreen} from '../screen/MenuScreen/MenuScreen';
+import {LoginScreen} from '../../Screens/AuthScreen/LoginScreen';
+import {RegisterScreen} from '../../Screens/AuthScreen/RegisterScreen';
+import {CameraScreen} from '../../Screens/CameraScreen/CameraScreen';
+import {EditMenu} from '../../Screens/EditMenuScreen/EditMenu';
+import {NavbarComponent} from '../Navbar/NavbarComponent';
+import {HomeScreen} from '../../Screens/HomeScreen/HomeScreen';
+import {PublicMenuScreen} from '../../Screens/PublicMenuScreen/PublicMenuScreen';
 import {PrivateRoute} from './PrivateRoute';
 
 export const AppRouter = () => {
@@ -24,7 +24,7 @@ export const AppRouter = () => {
           {/* Rutas publicas */}
           <Route exact path="/" component={HomeScreen} />
           <Route exact path="/cameraScan" component={CameraScreen} />
-          <Route exact path="/verMenu" component={MenuScreen} />
+          <Route exact path="/verMenu" component={PublicMenuScreen} />
           <Route exact path="/auth/login" component={LoginScreen} />
           <Route exact path="/auth/register" component={RegisterScreen} />
           {/* Rutas privadas */}

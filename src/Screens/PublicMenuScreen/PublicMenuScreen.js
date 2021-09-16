@@ -2,7 +2,7 @@ import {useHistory, useLocation} from 'react-router-dom';
 
 const queryString = require('query-string');
 
-export const MenuScreen = () => {
+export const PublicMenuScreen = () => {
   // Implementamos history y location
   const history = useHistory();
   const location = useLocation();

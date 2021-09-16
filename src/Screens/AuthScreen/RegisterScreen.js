@@ -1,5 +1,5 @@
 import {Link} from 'react-router-dom';
-import {useForm} from '../../hooks/useForm';
+import {useForm} from '../../Shared/hooks/useForm';
 
 export const RegisterScreen = () => {
   // useState para el formulario en versiones con registro
@@ -14,7 +14,7 @@ export const RegisterScreen = () => {
   });
 
   // Funcion de submit del form
-  const handleRegister = (e) => {
+  const handleRegister = e => {
     e.preventDefault();
 
     reset();

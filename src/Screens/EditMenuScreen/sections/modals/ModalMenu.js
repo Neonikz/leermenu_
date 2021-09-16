@@ -1,5 +1,5 @@
 import Modal from 'react-modal';
-import {useForm} from '../../../../hooks/useForm';
+import {useForm} from '../../../../Shared/hooks/useForm';
 
 // Estilos del modal a modificar
 const customStyles = {
@@ -29,12 +29,12 @@ export const ModalMenu = ({openModal, handleCloseModal}) => {
   const {name, description, price, category} = values;
 
   // Manejo del boton submit del formulario
-  const handleSubmitForm = (e) => {
+  const handleSubmitForm = e => {
     e.preventDefault();
     console.log(values);
   };
   // modalMenuInterface
-  const closeModal = (e) => {
+  const closeModal = e => {
     e.preventDefault();
     handleCloseModal();
   };
