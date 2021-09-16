@@ -47,7 +47,15 @@ export const LoginScreen = () => {
     // Existe? llevarlo al edit menu : preguntarle si desea registrarse
 
     // Se quiere registrar? llevarlo a editMenu : llevarlo a home;
+    
+    if(accessToken){
+      return 'algoenif'
+    }else{
+      return 'algo'
+    }
   };
+
+  
 
   const errorLogin = error => {
     console.log(error);
