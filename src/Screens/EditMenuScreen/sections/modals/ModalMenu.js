@@ -52,7 +52,7 @@ export const ModalMenu = ({openModal, handleCloseModal}) => {
 
   return (
     <div>
-      <Modal isOpen={openModal} onRequestClose={closeModal} closeTimeoutMS={200} style={customStyles}>
+      <Modal isOpen={openModal} onRequestClose={closeModal} closeTimeoutMS={200} styles={customStyles}>
         <form className="" onSubmit={handleSubmitForm}>
           <div className="form-control m-2 border border-black border-opacity-25 rounded-md p-8 text-center">
             <input type="file" id="image" onChange={handleImageChange} />
