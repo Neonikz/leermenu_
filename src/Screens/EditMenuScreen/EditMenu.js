@@ -1,8 +1,9 @@
 import {useContext, useEffect, useState} from 'react';
 import {GoogleLogout} from 'react-google-login';
+import { useDispatch, useSelector } from 'react-redux';
 import {useHistory} from 'react-router-dom';
+import { types } from '../../Shared/types/types';
 
-import {AuthContext} from '../../Shared/contexts/AuthContext';
 
 import {Config} from './sections/Config';
 import {Menu} from './sections/Menu';
@@ -13,14 +14,15 @@ export const EditMenu = () => {
   const history = useHistory();
 
   // Traigo la data del user
-  const {dispatch, user} = useContext(AuthContext);
+  const dispatch = useDispatch();
+  const user = useSelector( state => state.auth );
 
   const [showOption, setShowOption] = useState({showMenu: true});
   const {profileObj} = user;
 
   //Funcion para desloguear
   const handlerLogOut = () => {
-    dispatch({type: 'logout', payload: {}});
+    dispatch({type: types.logout });
     history.replace('/');
   };
 
