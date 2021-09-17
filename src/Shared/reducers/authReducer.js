@@ -1,26 +1,25 @@
+import { types } from '../types/types'
 const initialState = {
-  user: {
-    profileObj: {
-      email: '',
-      familyName: '',
-      givenName: '',
-      googleId: '',
-      imageUrl: '',
-      name: ''
-    },
-    accessToken: ''
-  }
+  name: '',
+  email: '',
+  familyName: '',
+  givenName: '',
+  googleId: '',
+  imageUrl: '',
+  accessToken: '',
+  logged:false
 };
 
 // Reducer para la autenticacion
 export const authReducer = (state = initialState, action) => {
   switch (action.type) {
-    case 'login':
+    case types.login:
       return {
+        ...state,
         ...action.payload,
         logged: true
       };
-    case 'logout':
+    case types.logout:
       return {
         ...initialState,
         logged: false

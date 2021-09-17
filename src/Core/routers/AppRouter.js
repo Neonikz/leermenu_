@@ -1,6 +1,4 @@
-import {useContext} from 'react';
 import {BrowserRouter as Router, Switch, Route, Redirect} from 'react-router-dom';
-import {AuthContext} from '../../Shared/contexts/AuthContext';
 
 // Componenets
 import {LoginScreen} from '../../Screens/AuthScreen/LoginScreen';
@@ -11,11 +9,11 @@ import {NavbarComponent} from '../Navbar/NavbarComponent';
 import {HomeScreen} from '../../Screens/HomeScreen/HomeScreen';
 import {PublicMenuScreen} from '../../Screens/PublicMenuScreen/PublicMenuScreen';
 import {PrivateRoute} from './PrivateRoute';
+import { useSelector } from 'react-redux';
 
 export const AppRouter = () => {
   // Implementamos el context en las rutas
-  const {user} = useContext(AuthContext);
-  const isAuthenticated = user.logged;
+  const { logged } = useSelector( state => state.auth );
 
   return (
     <Router>
@@ -28,10 +26,10 @@ export const AppRouter = () => {
           <Route exact path="/auth/login" component={LoginScreen} />
           <Route exact path="/auth/register" component={RegisterScreen} />
           {/* Rutas privadas */}
-          <PrivateRoute isAuthenticated={isAuthenticated} path="/editMenu" component={EditMenu} />
+          <PrivateRoute isAuthenticated={logged} path="/editMenu" component={EditMenu} />
           <Redirect to="/" />
         </Switch>
-        <NavbarComponent isAuthenticated={isAuthenticated} />
+        <NavbarComponent isAuthenticated={logged} />
       </>
     </Router>
   );
