@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import Modal from 'react-modal';
 import {useForm} from '../../../../Shared/hooks/useForm';
 
@@ -18,15 +19,15 @@ export const ModalMenu = ({openModal, handleCloseModal}) => {
   // Manejo del estado del fomulario
   const {values, handleInputChange} = useForm({
     name: '',
-    email: '',
-    password: '',
-    password2: '',
     description: '',
     price: '',
     category: ''
   });
 
   const {name, description, price, category} = values;
+
+  //State de la imagen
+  const [image, setImage] = useState('');
 
   // Manejo del boton submit del formulario
   const handleSubmitForm = e => {
@@ -38,11 +39,26 @@ export const ModalMenu = ({openModal, handleCloseModal}) => {
     e.preventDefault();
     handleCloseModal();
   };
+
+  const handleImageChange = e => {
+    const image = e.target.files[0];
+    //Convertir a Base64
+    let reader = new FileReader();
+    reader.readAsDataURL(image);
+    reader.onloadend = function () {
+      setImage(reader.result);
+    };
+  };
+
   return (
     <div>
-      <Modal isOpen={openModal} onRequestClose={closeModal} closeTimeoutMS={200} style={customStyles}>
+      <Modal isOpen={openModal} onRequestClose={closeModal} closeTimeoutMS={200} styles={customStyles}>
         <form className="" onSubmit={handleSubmitForm}>
-          <div className="form-control m-2 border border-black border-opacity-25 rounded-md p-8 text-center">Imagen</div>
+          <div className="form-control m-2 border border-black border-opacity-25 rounded-md p-8 text-center">
+            <input type="file" id="image" onChange={handleImageChange} />
+            <img id="image" src={image} alt="image" />
+          </div>
+
           <div className="form-control m-2 border border-black border-opacity-25 rounded-md p-2">
             <label htmlFor="name" className="label mr-2">
               Nombre
