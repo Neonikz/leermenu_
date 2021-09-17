@@ -2,22 +2,21 @@ import {Link, useHistory} from 'react-router-dom';
 import {GoogleLogin, GoogleLoginResponseOffline} from 'react-google-login';
 import Swal from 'sweetalert2';
 
-import {useContext} from 'react';
-import {AuthContext} from '../../Shared/contexts/AuthContext';
+import { useDispatch } from 'react-redux';
+import { types } from '../../Shared/types/types';
 
 export const LoginScreen = () => {
   //Implementamos history
   const history = useHistory();
 
-  // Implementamos el context en el login
-  const {dispatch} = useContext(AuthContext);
+  const dispatch = useDispatch();
 
   // Respuesta del boton de google
   const responseGoogle = response => {
     const {profileObj, accessToken} = response;
 
     dispatch({
-      type: 'login',
+      type: types.login,
       payload: {
         profileObj,
         accessToken
